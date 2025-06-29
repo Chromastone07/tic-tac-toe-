@@ -1,0 +1,139 @@
+body {
+  background: linear-gradient(90deg, #2c003e, #ff0066, #00e5ff);
+  background-size: 400% 400%;
+  animation: gradientFlow 20s ease infinite;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
+  padding-top: 50px;
+  text-align: center;
+  min-height: 100vh;
+  transition: background 0.5s ease;
+}
+
+body.dark-mode {
+  background: linear-gradient(120deg, #000000, #1a1a1a);
+  color: #f0f0f0;
+}
+
+.tic-container {
+  max-width: 360px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.3);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.tic-container h1 {
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ff0066, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.players {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.player-icon {
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 8px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-size: 36px;
+  color: #00e5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.1s;
+}
+
+.cell:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.winner-cell {
+  background: #22c55e !important;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.9);
+  animation: flash 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+#status {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+#winner-box {
+  background: linear-gradient(90deg, #00e5ff, #00b8d4);
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
+  display: none;
+}
+
+#winner-box.show {
+  display: block;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff0066, #00e5ff);
+  color: white;
+  box-shadow: 0 5px 20px rgba(0, 229, 255, 0.3);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
